@@ -1,0 +1,17 @@
+
+{
+
+
+    "Router": "app.js",
+    "Export the defoult root router {GET}": "http://localhost:3030/api/defoult/",
+    "Export the tasks router {GET} { GET all the tasks }": "http://localhost:3030/api/tasks/todos/",
+    "{GET} { GET the tasks with specifque id }": "http://localhost:3030/api/tasks/todos/id",
+    "{GET} { GET the tasks with description == keyword }": "http://localhost:3030/api/tasks/todos/search/keyword'",
+    "{GET} { GET the tasks with category == keyword }": "http://localhost:3030/api/tasks/todos/category/keyword'",
+    "{POST} { POST new tasks with auto icrement id by passing the data in body fileds }" : "http://localhost:3030/api/tasks/todos/addtask",
+    "{DELETE} { DELETE specifque tasks by passing id in body fileds }" : "http://localhost:3030/api/tasks/todo/delete/id",
+    "{UPDATE} { UPDATE specifque tasks by passing if in body fileds }" : "http://localhost:3030/api/tasks/todo/update/id"
+
+
+  }
+  
