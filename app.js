@@ -25,9 +25,8 @@ app.listen(PORT, function () {
 */
 
 //define post for deployment prupoes
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-    console.log("App is running on port " + port);
+app.listen(process.env.PORT || 3000, function(){
+    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
   });
 
 
