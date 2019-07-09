@@ -17,7 +17,6 @@ app.use('/api/tasks',require('./routes/api/tasks'));
 
 
 /*
-//define post for deployment prupoes
 const PORT = process.env.PORT || 3030;
 //server start 
 app.listen(PORT, function () {
@@ -25,8 +24,10 @@ app.listen(PORT, function () {
 });
 */
 
-app.listen((process.env.PORT || 5000), function(){
-    console.log('listening on : 5000');
+//define post for deployment prupoes
+const port = process.env.PORT || 5000;
+app.listen(port, () => {
+    console.log("App is running on port " + port);
   });
 
 
