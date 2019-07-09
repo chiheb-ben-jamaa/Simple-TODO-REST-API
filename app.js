@@ -29,10 +29,9 @@ app.listen(PORT, function () {
 */
 
 //define post for deployment prupoes
-let server = require('http').Server(app);
+const PORT = process.env.PORT || config.httpPort;
 
-
-app.listen((process.env.PORT || 5000), function(){
+app.listen(PORT, function(){
     console.log('listening on *:5000');
   });
 
