@@ -5,6 +5,10 @@ const mysql = require('mysql');
 const morgan=require('morgan')
 app.use(morgan('combined'))
 
+
+path = require('path');
+
+
 //init
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -25,10 +29,14 @@ app.listen(PORT, function () {
 */
 
 //define post for deployment prupoes
-app.listen(process.env.PORT || 3000, function(){
-    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
-  });
+let server = require('http').Server(app);
 
+app.use(express.static(path.join(__dirname)));
+
+var port = process.env.PORT || 8000;
+server.listen(port, function() {
+    console.log("App is running on port " + port);
+});
 
 
 
