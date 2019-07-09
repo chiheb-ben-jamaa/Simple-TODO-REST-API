@@ -25,8 +25,8 @@ app.listen(PORT, function () {
 */
 
 //define post for deployment prupoes
-const port = process.env.PORT || 5000;
-app.listen(port, () => {
+const PORT = process.env.port || 5000;
+app.listen(PORT, () => {
     console.log("App is running on port " + port);
   });
 
