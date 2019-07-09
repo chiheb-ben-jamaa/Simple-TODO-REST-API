@@ -16,20 +16,20 @@ app.use(bodyParser.urlencoded({
 }));
  
 
-app.use('/api/',require('./routes/api/defoult'));
 app.use('/api/tasks',require('./routes/api/tasks'));
 
 
-/*
-const PORT = process.env.PORT || 3030;
-//server start 
-app.listen(PORT, function () {
-    console.log('Node app is running on port 3030');
+// default route
+app.get('/', function (req, res) {
+    console.log('testing The API !')
+    return res.send({ error: true, message: 'Texting The API ' })
 });
-*/
+
+
+
 
 //define post for deployment prupoes
-const PORT = process.env.PORT || config.httpPort;
+const PORT = process.env.PORT || 5000
 
 app.listen(PORT, function(){
     console.log('listening on *:5000');
