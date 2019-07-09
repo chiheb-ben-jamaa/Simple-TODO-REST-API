@@ -31,13 +31,10 @@ app.listen(PORT, function () {
 //define post for deployment prupoes
 let server = require('http').Server(app);
 
-app.use(express.static(path.join(__dirname)));
 
-var port = process.env.PORT || 8000;
-server.listen(port, function() {
-    console.log("App is running on port " + port);
-});
-
+http.listen((process.env.PORT || 5000), function(){
+    console.log('listening on *:5000');
+  });
 
 
 
