@@ -8,9 +8,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "node ./bin/www",
     "dev": "nodemon app.js"
-
   },
   "keywords": [],
   "author": "",
@@ -24,4 +23,3 @@
     "mysql": "^2.17.1"
   }
 }
-   
