@@ -7,11 +7,6 @@ app.use(morgan('combined'))
 
 
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
-
-
 //init
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -26,16 +21,17 @@ app.use('/api/tasks',require('./routes/api/tasks'));
 // default route
 app.get('/', function (req, res) {
     console.log('testing The API !')
-    return res.send({ error: true, message: 'Texting The API ' })
+    res.redirect('/api/tasks/todo/');
 });
 
 
 
 
 //define post for deployment prupoes
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Our app is running on port ${ PORT }`);
+const PORT = process.env.PORT || 3030;
+//server start 
+app.listen(PORT, function () {
+    console.log('Node app is running on port 3030');
 });
 
 

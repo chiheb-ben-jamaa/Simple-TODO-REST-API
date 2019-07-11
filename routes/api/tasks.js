@@ -32,7 +32,9 @@ mc.connect();
 
 
 
-
+router.get('/todo',function(req,res){
+    return res.send({ error: true, message: 'Texting The API ' })
+});
 
 
 
