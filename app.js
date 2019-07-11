@@ -14,7 +14,8 @@ app.use(bodyParser.urlencoded({
 }));
  
 
-
+//static files
+app.use(express.static('./public'));
 app.use('/api/tasks',require('./routes/api/tasks'));
 
 
