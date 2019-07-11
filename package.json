@@ -8,9 +8,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    
-    "postinstall": "npm run build",
-    "start": "node server.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
 
   },
   "keywords": [],
@@ -25,3 +24,4 @@
     "mysql": "^2.17.1"
   }
 }
+   
