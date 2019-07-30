@@ -1,5 +1,4 @@
-const express = require('express');
-const app = express();
+const app = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
 const morgan=require('morgan')
@@ -26,22 +25,28 @@ app.use('/api/tasks',require('./routes/api/tasks'));
 
 
 // default route
+
+/*
 app.get('/', function (req, res) {
     console.log('testing The API !')
     res.redirect('/api/tasks/todo/');
 });
-
+*/
 
 
 
 
 
 //define post for deployment prupoes
-const port = process.env.PORT || 8000;
+const PORT = process.env.PORT || 5000
 //server start 
-app.listen(port, () => {
-    console.log("App is running on port " + port);
-});
+app()
+    .use(express.static(path.join(__dirname, 'public')))
+    .set('views', path.join(__dirname, 'views'))
+    .set('view engine', 'ejs')
+    .get('/', (req, res) =>  res.redirect('/api/tasks/todo/'))
+    .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+
 
 
 
