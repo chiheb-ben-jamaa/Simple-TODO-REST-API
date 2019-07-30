@@ -1,8 +1,7 @@
 const app = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
-const morgan=require('morgan')
-app.use(morgan('combined'))
+
 
 
 //adding this from heroku doc :
