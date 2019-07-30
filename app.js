@@ -37,14 +37,11 @@ app.get('/', function (req, res) {
 
 
 //define post for deployment prupoes
-const PORT = process.env.PORT || 3030;
+const port = process.env.PORT || 8000;
 //server start 
-app
-.use(express.static(path.join(__dirname, 'public')))
-.set('views', path.join(__dirname, 'views'))
-.set('view engine', 'ejs')
-.get('/cool', (req, res) => res.send(cool()))
-.listen(PORT, () => console.log(`Listening on ${ PORT }`))
+app.listen(port, () => {
+    console.log("App is running on port " + port);
+});
 
 
 
