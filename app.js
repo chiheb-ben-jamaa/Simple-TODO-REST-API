@@ -1,7 +1,9 @@
-const app = require('express');
-const bodyParser = require('body-parser');
+const express = require('express');
+const app = express();
+var bodyParser = require('body-parser');
 const mysql = require('mysql');
-
+const morgan=require('morgan')
+app.use(morgan('combined'))
 
 
 //adding this from heroku doc :
@@ -24,28 +26,22 @@ app.use('/api/tasks',require('./routes/api/tasks'));
 
 
 // default route
-
-/*
 app.get('/', function (req, res) {
     console.log('testing The API !')
     res.redirect('/api/tasks/todo/');
 });
-*/
+
 
 
 
 
 
 //define post for deployment prupoes
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 3030
 //server start 
-app()
-    .use(express.static(path.join(__dirname, 'public')))
-    .set('views', path.join(__dirname, 'views'))
-    .set('view engine', 'ejs')
-    .get('/', (req, res) =>  res.redirect('/api/tasks/todo/'))
-    .listen(PORT, () => console.log(`Listening on ${ PORT }`))
-
+app.listen(PORT, () => {
+    console.log(`Listening on ${ PORT }`);
+});
 
 
 
