@@ -26,10 +26,12 @@ app.use('/api/tasks',require('./routes/api/tasks'));
 
 
 // default route
+/*
 app.get('/', function (req, res) {
     console.log('testing The API !')
     //res.redirect('/api/tasks/todo/');
 });
+*/
 
 
 
