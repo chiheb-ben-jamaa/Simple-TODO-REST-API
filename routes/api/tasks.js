@@ -109,7 +109,7 @@ router.get('/todos/search/:keyword', function (req, res) {
 
 
 // Search for todos with ‘category’ as keyword
-router.get('/todos/category/:keyword', function (req, res) {
+router.get('/todos/search/category/:keyword', function (req, res) {
     let keyword = req.params.keyword;
     mc.query("SELECT * FROM tasks WHERE category LIKE ? ", ['%' + keyword + '%'], function (error, results, fields) {
         if (error) throw error;
@@ -173,21 +173,48 @@ router.post('/todos/addtask', function (req, res) {
 
 
 
-//delete todo with id 
-router.delete('/todos/delete/:id', function(req,res){
-    
-    let delete_task_id =req.params.id
-    mc.query('DELETE FROM tasks WHERE id = ?',[delete_task_id], function (error, results, fields){
+
+//  Delete todo
+router.delete('/todos/delete/:id', function (req, res) {
+ 
+    let task_id = req.params.id;
+ 
+    mc.query('DELETE FROM tasks WHERE id = ?', [task_id], function (error, results, fields) {
         if (error) throw error;
-        return res.send({ error: false, data: results, message: 'The task has been delete successfully.' });
+        return res.send({ error: false, data: results, message: 'Task has been delete successfully.' });
+    });
+ 
+});
+ 
+
+
+//  Update todo with id
+router.put('/todos/update/:id', function (req, res) {
+ 
+    
+    let task_id = req.params.id;
+
+    const feild = {
+        des: req.body.description,
+        cat: req.body.category,
+        tim: req.body.time,
+       
+      }
+
+    
+    if (!task_id){
+        errors.push("No id tasks specified");
+    }
+ 
+    mc.query("UPDATE tasks SET id = ?, description = ?, category = ?, time = ? WHERE id = ?",[task_id,feild.des,feild.cat,feild.tim,task_id], function (error, results, fields) {
+        if (error) throw error;
+        return res.send({ error: false, data: results, message: 'Task has been updated successfully.' });
     });
 
 });
 
 
 
-
-//update todo with id
 
 
 

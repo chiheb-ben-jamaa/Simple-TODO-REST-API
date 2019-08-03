@@ -25,16 +25,20 @@ app.use(express.static('./public'));
 app.use('/api/tasks',require('./routes/api/tasks'));
 
 
-// default route
-/*
+
 app.get('/', function (req, res) {
     console.log('testing The API !')
-    //res.redirect('/api/tasks/todo/');
+    res.redirect('/api/tasks/todo/');
 });
-*/
 
 
 
+// all other requests redirect to 404
+app.all("*", function (req, res, next) {
+    return res.send('page not found');
+    next();
+});
+ 
 
 
 
